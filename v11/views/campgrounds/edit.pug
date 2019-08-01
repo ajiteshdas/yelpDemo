@@ -1,0 +1,22 @@
+include ../partials/header.pug
+
+block content
+    .container
+        .row.justify-content-center
+            .col-sm-5
+                h2.my-4(style="text-align:center;") Edit 
+                    =campground.name
+                form.my-4(action=`/campgrounds/${campground._id}?_method=PUT`, method="post")
+                    .form-group
+                        input.form-control(type="text", value=`${campground.name}`, name="name", placeholder="camp name", maxlength="20")
+                    .form-group
+                        input.form-control(type="text", value=`${campground.image}`, name="image", placeholder="image url")
+                    .form-group
+                        input.form-control(type="number", value=`${campground.price}`, name="price", placeholder="price")
+                    .form-group
+                        textarea.form-control(value=`${campground.description}`, name="description", placeholder="description", cols="40", rows="5")
+                    .form-group
+                        button.btn.btn-md.btn-outline-primary.my-2.btn-block Submit
+                a(href="/campgrounds") Go back
+
+include ../partials/footer.pug

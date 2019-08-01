@@ -1,0 +1,15 @@
+body{
+  padding-bottom: 4em;
+}
+/* img{
+  width: 30%;
+  height: 30%;
+} */
+
+p{
+  text-align: justify !important;
+}
+
+.deleteForm{
+  display: inline;
+}

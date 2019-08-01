@@ -1,0 +1,19 @@
+include ./partials/header.pug
+
+block content
+    alert.alert-danger=message
+    .container
+        .row.justify-content-center
+            .col-sm-5
+                h2.my-4(style="text-align:center;") Login
+                form(action="/login", method="post")
+                    .form-group
+                        input.form-control(type="text", name="username", placeholder="username")
+                    .form-group
+                        input.form-control(type="password", name="password", placeholder="password")
+                    .form-group
+                        button.btn.btn-md.btn-outline-primary.my-2.btn-block Submit
+                a(href="/") Go back
+                
+
+include ./partials/footer.pug

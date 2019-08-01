@@ -1,0 +1,21 @@
+include ../partials/header.pug
+
+block content
+    .container
+        .row.justify-content-center
+            .col-sm-5
+                h2.my-4(style="text-align:center;") Create a New Campground
+                    form.my-4(action="/campgrounds", method="post")
+                        .form-group
+                            input.form-control(type="text", name="name", placeholder="camp name", maxlength="20" required)
+                        .form-group
+                            input.form-control(type="text", name="image", placeholder="image url" required)
+                        .form-group
+                            input.form-control(type="number", name="price", placeholder="price" min='100' step='100')
+                        .form-group
+                            textarea.form-control(name="description", placeholder="description", cols="40", rows="5")
+                        .form-group
+                            button.btn.btn-md.btn-outline-primary.my-2.btn-block Submit
+                a(href="/campgrounds") Go back
+
+include ../partials/footer.pug

@@ -1,0 +1,23 @@
+include ../partials/header.pug
+
+block content
+
+    .container
+        header.jumbotron.my-2
+            h1 Welcome to #{title}!
+            p View our hand-picked campgrounds from all over the world
+            p
+                a.btn.btn-primary.btn-md(href="/campgrounds/new") Add New Campground!
+        h5 Check out out most popular places below
+        .row
+            each camp in campgrounds
+                .col-md-3.col-sm-6.my-2.d-flex.align-items-stretch
+                    .card
+                        a(href=`/campgrounds/${camp._id}`)
+                            img.card-img-top(src=` ${camp.image}`)
+                        .card-body.align-items-end
+                            h5.card-title=camp.name.substring(0,20)
+                            p.card-text=camp.description.substring(0,100)
+                            a.btn.btn-outline-primary(href=`/campgrounds/${camp._id}`) More Info
+
+include ../partials/footer.pug

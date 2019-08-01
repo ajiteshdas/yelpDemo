@@ -1,0 +1,44 @@
+include ../partials/header.pug
+
+block content
+    .container
+        .row
+            .col-md-3
+                p.lead=title
+                .list-group
+                    li.list-group-item.active Info
+                    li.list-group-item Info
+                    li.list-group-item Info
+            //Campgground Info container
+            .col-md-9
+                .card
+                    img.card-img-top(src=`${campground.image}`)
+                    .card-body 
+                        h4.float-right ₹ #{campground.price} / night
+                        a(href="#", title="title")
+                            h4=campground.name
+                        p.card-text.mt-2=campground.description
+                        p.card-text.mt-2 Submited by 
+                            em=campground.author.username
+                        if currentUser && campground.author.id.equals(currentUser._id)
+                            a.btn.btn-outline-warning.btn-sm(href=`/campgrounds/${campground._id}/edit`) Edit Campground Info
+                            form.deleteForm(action=`/campgrounds/${campground._id}?_method=DELETE`, method="post")
+                                button.btn.btn-outline-danger.btn-sm.float-right Delete
+                
+                //Comments container
+                .card.bg-light.mt-3
+                    .card-body
+                        .row
+                            .col-md-12
+                                a.btn.btn-outline-info.btn-sm.mb-3.float-right.sticky-top(href=`${campground._id}/comments/new`) Leave a review
+                        each comment in campground.comments
+                            .row.my-5
+                                .col-md-12
+                                    strong=comment.author.username
+                                    span.float-right 10 days ago
+                                    p=`${comment.text}`
+                                    if currentUser && comment.author.id.equals(currentUser._id)
+                                        a.btn.btn-sm.btn-outline-warning(href=`/campgrounds/${campground._id}/comments/${comment._id}/edit`) edit
+                                        form.deleteForm(action=`/campgrounds/${campground._id}/comments/${comment._id}?_method=DELETE`, method="post")
+                                            button.btn.btn-outline-danger.btn-sm.float-right delete
+include ../partials/footer.pug

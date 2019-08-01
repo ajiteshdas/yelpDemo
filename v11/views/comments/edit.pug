@@ -1,0 +1,16 @@
+include ../partials/header.pug
+
+block content
+    .container
+        .row.justify-content-center
+            .col-sm-4.col-md-4
+                h2.my-4(style="text-align:center;") Edit comment
+                    //span=campground.name
+                form(action=`/campgrounds/${campground_id}/comments/${comment._id}?_method=PUT`, method="post")
+                    .form-group
+                        input.form-control(type="text", name="text", placeholder="text", value=`${comment.text}`)
+                    .form-group
+                        button.btn.btn-md.btn-outline-primary.my-2.btn-block Submit
+                a(href="/campgrounds") Go back
+
+include ../partials/footer.pug

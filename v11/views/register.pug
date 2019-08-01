@@ -1,0 +1,29 @@
+include ./partials/header.pug
+
+block content
+    .container
+        .row.justify-content-center
+            .col-sm-5
+                h2.my-4(style="text-align:center;") Sign Up
+                form(action="/register", method="post")
+                    .form-group
+                        input.form-control(type="text", name="username", placeholder="username")
+                    .form-group
+                        input.form-control(type="password", name="password", placeholder="password")
+                    .form-group
+                        input.form-control(type="email", name="email", placeholder="email")
+                    div.mb-3.d-flex.justify-content-around
+                        .form-check.form-check-inline
+                            label.form-check-label(for='female') Female
+                                input.form-check-input.ml-2(type="radio", name="gender", value="female")
+                        .form-check.form-check-inline
+                            label.form-check-label(for='male') Male
+                                input.form-check-input.ml-2(type="radio", name="gender", value="male")
+                        .form-check.form-check-inline
+                            label.form-check-label(for='other') Other
+                                input.form-check-input.ml-2(type="radio", name="gender", value="other")
+                    .form-group
+                        button.btn.btn-md.btn-outline-primary.my-2.btn-block Submit
+                a(href="/") Go back
+
+include ./partials/footer.pug
