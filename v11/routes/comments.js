@@ -4,7 +4,7 @@ var express = require("express"),
   Comment = require("../models/comment"),
   middleware = require('../middleware');
 
-//Comments New
+//NEW - GET comments new form
 router.get("/new", middleware.isLoggedIn, async (req, res) => {
   // find campground by id
   try {
@@ -16,7 +16,7 @@ router.get("/new", middleware.isLoggedIn, async (req, res) => {
   }
 });
 
-//Comments Create
+//CREATE - PUT data from comments form
 router.post("/", middleware.isLoggedIn, async (req, res) => {
   //lookup campground using ID
   try {
