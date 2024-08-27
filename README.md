@@ -13,3 +13,4 @@ Key learnings:
 3) Learnt how to use a templating engine to standardise frontend
 4) Learnt how to use Auth0 library for secure user login
 5) Learnt how to combines backend and frontend codes
+6) Learnt how to push, pull and commit code to github
